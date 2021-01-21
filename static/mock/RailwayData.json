@@ -2,331 +2,135 @@
     "standardList":[
         {
             "id":1,
-            "name":"新疆维吾尔族自治区智慧工地建设和应用省级统一标准",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "name":"铁路工程工程0",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"行业标准",
             "date":"2020/12/24"
         },{
-            "id":1,
-            "name":"铁路工程2",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":2,
+            "name":"铁路工程工程1",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"行业标准",
             "date":"2020/12/24"
         },
         {
-            "id":1,
-            "name":"铁路工程2",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":3,
+            "name":"铁路工程工程2",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"地方标准",
             "date":"2020/12/24"
         },
         {
-            "id":1,
-            "name":"铁路工程3",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":4,
+            "name":"铁路工程工程3",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"地方标准",
             "date":"2020/12/24"
         },
         {
-            "id":1,
-            "name":"铁路工程4",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":5,
+            "name":"铁路工程工程4",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"地方标准",
             "date":"2020/12/24"
         },
         {
-            "id":1,
-            "name":"铁路工程5",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":6,
+            "name":"铁路工程工程5",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"地方标准",
             "date":"2020/12/24"
         },
         {
-            "id":1,
-            "name":"铁路工程6",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":7,
+            "name":"铁路工程工程6",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"地方标准",
             "date":"2020/12/24"
         },{
-            "id":1,
-            "name":"铁路工程7",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":8,
+            "name":"铁路工程工程7",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"地方标准",
             "date":"2020/12/24"
         },
         {
-            "id":1,
-            "name":"铁路工程8",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":9,
+            "name":"铁路工程工程8",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"地方标准",
             "date":"2020/12/24"
         },
         {
-            "id":1,
-            "name":"铁路工程9",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":10,
+            "name":"铁路工程工程9",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"地方标准",
             "date":"2020/12/24"
         },
         {
-            "id":1,
-            "name":"铁路工程10",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":11,
+            "name":"铁路工程工程10",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"地方标准",
             "date":"2020/12/24"
         },
         {
-            "id":1,
-            "name":"铁路工程11",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":12,
+            "name":"铁路工程工程11",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"地方标准",
             "date":"2020/12/24"
         },
         {
-            "id":1,
-            "name":"铁路工程12",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":13,
+            "name":"铁路工程工程12",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"地方标准",
             "date":"2020/12/24"
         },{
-            "id":1,
-            "name":"铁路工程13",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":14,
+            "name":"铁路工程工程13",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"企业标准",
             "date":"2020/12/24"
         },
         {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":15,
+            "name":"铁路工程工程14",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"企业标准",
             "date":"2020/12/24"
         },
         {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":16,
+            "name":"铁路工程工程16",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"企业标准",
             "date":"2020/12/24"
         },
         {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },{
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },{
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },{
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },{
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
-            "date":"2020/12/24"
-        },
-        {
-            "id":1,
-            "name":"铁路工程1",
-            "province_id":1,
-            "city_id":1,
-            "class_id":1,
+            "id":17,
+            "name":"铁路工程工程17",
+            "province_id":"山东省",
+            "city_id":"青岛市",
+            "class_id":"企业标准",
             "date":"2020/12/24"
         }
     ]

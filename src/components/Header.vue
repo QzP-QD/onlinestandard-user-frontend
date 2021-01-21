@@ -4,7 +4,8 @@
                 background-color: #B3C0D1;
                 color: #000000;
                 text-align: left;
-                line-height: 60px;">
+                height:30px;
+                line-height: 30px;">
         您好！欢迎访问智慧工地标准系统官网！
     </el-header>
     <el-image
