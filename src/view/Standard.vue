@@ -7,6 +7,8 @@
       <h4 style="margin-top:0px;">主页</h4>
       <h4 style="margin-top:0px;">>></h4>
       <h4 style="margin-top:0px;">{{activeBusiness}}</h4>
+      <h4 v-if="mode === 2" style="margin-top:0px;">>></h4>
+      <h4 v-if="mode === 2" style="margin-top:0px;">{{standardDetial.name}}</h4>
     </div>
     <el-container>
       <el-aside
@@ -39,7 +41,7 @@
           </el-menu-item>
         </el-menu>
       </el-aside>
-    <el-main>
+    <el-main v-if="mode === 1">
       <h1 
         style="
           height:40px;
@@ -111,13 +113,19 @@
           <el-table
             :data="tableData.slice((currentPage-1)*pageSize, currentPage*pageSize)"
             stripe
-            style="width: 100%;"
-            @row-click="forDetail">
+            style="width: 100%;">
             <el-table-column
               align="center"
               prop="name"
               label="标准名称"
               width="250">
+              <template slot-scope="scope">
+                  <el-button type="text" 
+                    style="color:#000000"
+                    @click="forDetail(scope.row)">
+                    {{scope.row.name}}
+                  </el-button>
+              </template>
             </el-table-column>
             <el-table-column
               align="center"
@@ -186,6 +194,10 @@
         </div>
       </div>
     </el-main>
+
+    <el-main v-if="mode === 2">
+        {{standardDetial}}
+    </el-main>    
   </el-container>
 </el-container>
 </template>
@@ -198,6 +210,7 @@ export default {
   name:"StandardList",
   data(){
     return{
+      mode:1, //1代表列表形式，2代表详情形式
       BusinessData:"",
       activeBusiness:"智慧工地建设和应用统一标准",  //默认选中的工程类型
       standardList:"",
@@ -245,7 +258,8 @@ export default {
       selectedClass:'',
       selectedProv:'',
       selecetdCity:'',
-      standardPrepared:[]
+      standardPrepared:[],
+      standardDetial:''
     }
   },
   mounted(){
@@ -278,14 +292,14 @@ export default {
     //左侧工程分类切换响应方法
     switchBusiness(key, keyPath){
       if(key != null){
-        this.activeBusiness=key
+        this.mode = 1
         this.selectedClass = ''
         this.selectedProv = ''
         this.selecetdCity = ''
+        this.currentPage = 1
         this.cities = []
-        this.standardPrepared = []
 
-        //获取到所选择板块的工程类型，留出接口，方便后期对接后台查询
+        //获取到所选择板块的工程类型id，留出接口，方便后期对接后台查询
         var businessId=""
         for(var i=0; i<this.BusinessData.length; i++){
           if(this.BusinessData[i].name === key){
@@ -294,20 +308,25 @@ export default {
           }
         }
         
-        //模拟获取对应工程类型的数据
-        let that = this
-        var nameList=["UnifyData","RailwayData","HighwayData","HousebuildingData","UrbanRailData","MunicipalData","WatherData"]
-        this.axios({
-            method: 'get',
-            url: 'http://localhost:8080/static/mock/'+nameList[businessId]+'.json'
-            }).then(function (response) {
-              that.standardList = response.data.standardList
-              for(var i=0; i < that.standardList.length; i++){
-                that.standardList[i].chosen = false
-              }
-              that.tableData = that.standardList
-            })
-        this.currentPage=1
+        if(this.activeBusiness === key){          //若点击相同的工程类型(从详情/从列表)
+          this.tableData = this.standardList
+        }else{
+          this.activeBusiness=key
+          this.standardPrepared = []
+          //模拟获取对应工程类型的数据
+          let that = this
+          var nameList=["UnifyData","RailwayData","HighwayData","HousebuildingData","UrbanRailData","MunicipalData","WatherData"]
+          this.axios({
+              method: 'get',
+              url: 'http://localhost:8080/static/mock/'+nameList[businessId]+'.json'
+              }).then(function (response) {
+                that.standardList = response.data.standardList
+                for(var i=0; i < that.standardList.length; i++){
+                  that.standardList[i].chosen = false
+                }
+                that.tableData = that.standardList
+              })
+        }
       }
     },
     //选中标准作为对比
@@ -1521,6 +1540,7 @@ export default {
       this.selectedClass = ''
       this.selectedProv = ''
       this.selecetdCity = ''
+      this.currentPage = 1
       this.tableData = this.standardList
     },
     //保持standardList和tabledata中的数据一致
@@ -1533,12 +1553,14 @@ export default {
       }
     },
     //查看标准详情响应
-    forDetail(row, event, colum){
+    forDetail(row){
       this.uptodate()
-      var mydata = {}
-      mydata.activeBusiness = this.activeBusiness
-      mydata.standardList = this.standardList
-      mydata.standardPrepared = this.standardPrepared
+      this.mode = 2
+      this.selectedClass = ''
+      this.selectedProv = ''
+      this.selecetdCity = ''
+      this.currentPage = 1
+      this.tableData = this.standardList
 
       var temp = {}
       temp.chosen = row.chosen
@@ -1549,9 +1571,16 @@ export default {
       temp.date = row.date
       temp.class_id = row.class_id
       
-      mydata.standard = temp
-      bus.$emit("gotoDetail", mydata)
-      this.$router.push({path:'/detail'})
+      var that = this
+      this.axios({
+        method: 'get',
+        // params:{
+        //     temp // 传到后台待查询数据
+        // },
+        url: 'http://localhost:8080/static/mock/standardDetial.json'
+        }).then(function (response) {
+            that.standardDetial = response.data.standardDetial;
+        })
     }
   }
 
