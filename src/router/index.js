@@ -2,9 +2,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import StandardList from "../view/StandardList"
-import StandardDetail from "../view/StandardDetail"
 import Standard from "../view/Standard"
+import StandardDemo from "../view/StandardDemo"
 
 //使用
 Vue.use(VueRouter);
@@ -17,12 +16,8 @@ export default new VueRouter({
             component: Standard,
         },
         {
-            path:'/list',
-            component: StandardList,
-        },
-        {
-            path:'/detail',
-            component: StandardDetail,
+            path:'/1',
+            component: StandardDemo,
         }
     ]
 })

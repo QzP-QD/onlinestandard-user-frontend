@@ -203,9 +203,6 @@
 </template>
 
 <script>
-//引入bus作为数据传输总线
-import bus from "./eventbus";
-
 export default {
   name:"StandardList",
   data(){

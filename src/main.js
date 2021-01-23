@@ -13,6 +13,9 @@ import ElementUI from "element-ui"
 import 'element-ui/lib/theme-chalk/index.css'
 
 import Header from "./components/Header"
+import List from "./components/List"
+import Detial from "./components/Detial"
+
 //使用
 Vue.use(VueRouter)
 Vue.use(VueAxios, axios)
@@ -21,6 +24,8 @@ Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 Vue.component("Header", Header)
+Vue.component("List", List)
+Vue.component("Detial", Detial)
 
 /* eslint-disable no-new */
 new Vue({
