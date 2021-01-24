@@ -9,7 +9,7 @@
         标准列表——{{activeBusiness}}
       </h1>
       <div>
-        标准检索：{{standardPrepared}}
+        标准检索：
         <el-select
           placeholder="请选择标准等级"
           v-model="selectedClass">
@@ -149,6 +149,11 @@
               </template>
             </el-table-column>
           </el-table>
+          <el-button 
+            @click="mergeStandard"
+            v-if="standardPrepared.length > 1">
+              生成合并文档
+          </el-button>
         </div>
       </div>
     </el-main>
@@ -1551,6 +1556,13 @@ export default {
             temp.chosen = row.chosen
             temp.activeBusiness = this.activeBusiness
             bus.$emit("sendID",temp)
+        },
+        mergeStandard(){
+            var idlist = []
+            for(var item of this.standardPrepared){
+                idlist.push(item.id)
+            }
+            this.$router.push({name:'MergePage',params:{mylist:idlist}});
         }
     }
 }

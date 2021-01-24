@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 
 import Standard from "../view/Standard"
 import StandardDemo from "../view/StandardDemo"
+import MergeStandard from "../view/MergeStandard"
 
 //使用
 Vue.use(VueRouter);
@@ -18,6 +19,11 @@ export default new VueRouter({
         {
             path:'/1',
             component: StandardDemo,
+        },
+        {
+            name:"MergePage",
+            path:'/merge',
+            component:MergeStandard
         }
     ]
 })
