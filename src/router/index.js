@@ -14,10 +14,6 @@ export default new VueRouter({
     routes:[
         {
             path:'/',
-            component: Standard,
-        },
-        {
-            path:'/1',
             component: StandardDemo,
         },
         {

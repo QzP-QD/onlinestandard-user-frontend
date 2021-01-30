@@ -48,7 +48,6 @@
         </List>
     </div>
 
-
     <div v-show="mode === 2">
         <Detial></Detial>
     </div>    
@@ -77,11 +76,11 @@ export default {
     getBusinessData(){
       let that = this
       this.axios({
-          method: 'get',
-          url: 'http://localhost:8080/static/mock/BusinessData.json'
-          }).then(function (response) {
-            that.BusinessData = response.data.BusinessData;
-          })
+        method: 'get',
+        url: 'http://localhost:8080/static/mock/BusinessData.json'
+        }).then(function (response) {
+          that.BusinessData = response.data.BusinessData;
+        })
     },
     //左侧工程分类切换响应方法
     switchBusiness(key, keyPath){
