@@ -87,7 +87,7 @@
             </el-table-column>
             <el-table-column
               align="center"
-              prop="class_id"
+              prop="class_name"
               label="标准级别"
               width="150">
             </el-table-column>
@@ -1512,10 +1512,9 @@ export default {
             this.uptodate()
             var temptable = []
             for(var item of this.standardList){
-                if((this.selectedClass === "nocondition" || this.selectedClass === "" || item.class_id === this.selectedClass)
-                && (this.selectedProv === "nocondition" || this.selectedProv === "" ||item.province_id === this.selectedProv)
-                && (this.selecetdCity === "nocondition" || this.selecetdCity === "" ||item.city_id === this.selecetdCity)){
-
+                if((this.selectedClass === "nocondition" || this.selectedClass === "" || item.class_name === this.selectedClass)
+                && (this.selectedProv === "nocondition" || this.selectedProv === "" ||item.province_name === this.selectedProv)
+                && (this.selecetdCity === "nocondition" || this.selecetdCity === "" ||item.city_name === this.selecetdCity)){
                     temptable.push(item)
                 }
             }

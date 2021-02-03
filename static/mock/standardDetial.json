@@ -2,9 +2,9 @@
     "standardDetial":{
         "id":1,
         "name":"统一标准0",
-        "province_id":"山东省",
-        "city_id":"青岛市",
-        "class_id":"行业标准",
+        "province_name":"山东省",
+        "city_name":"青岛市",
+        "class_name":"行业标准",
         "date":"2020/12/24",
         "items":[
             {

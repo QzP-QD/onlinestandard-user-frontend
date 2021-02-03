@@ -2,7 +2,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Standard from "../view/Standard"
 import StandardDemo from "../view/StandardDemo"
 import MergeStandard from "../view/MergeStandard"
 

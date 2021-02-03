@@ -3,134 +3,134 @@
         {
             "id":1,
             "name":"市政工程0",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"行业标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"行业标准",
             "date":"2020/12/24"
         },{
             "id":2,
             "name":"市政工程1",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"行业标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"行业标准",
             "date":"2020/12/24"
         },
         {
             "id":3,
             "name":"市政工程2",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":4,
             "name":"市政工程3",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":5,
             "name":"市政工程4",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":6,
             "name":"市政工程5",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":7,
             "name":"市政工程6",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },{
             "id":8,
             "name":"市政工程7",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":9,
             "name":"市政工程8",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":10,
             "name":"市政工程9",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":11,
             "name":"市政工程10",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":12,
             "name":"市政工程11",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":13,
             "name":"市政工程12",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },{
             "id":14,
             "name":"市政工程13",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"企业标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"企业标准",
             "date":"2020/12/24"
         },
         {
             "id":15,
             "name":"市政工程14",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"企业标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"企业标准",
             "date":"2020/12/24"
         },
         {
             "id":16,
             "name":"市政工程16",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"企业标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"企业标准",
             "date":"2020/12/24"
         },
         {
             "id":17,
             "name":"市政工程17",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"企业标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"企业标准",
             "date":"2020/12/24"
         }
     ]

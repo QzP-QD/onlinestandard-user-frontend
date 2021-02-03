@@ -3,134 +3,134 @@
         {
             "id":1,
             "name":"房屋建筑工程0",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"行业标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"行业标准",
             "date":"2020/12/24"
         },{
             "id":2,
             "name":"房屋建筑工程1",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"行业标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"行业标准",
             "date":"2020/12/24"
         },
         {
             "id":3,
             "name":"房屋建筑工程2",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":4,
             "name":"房屋建筑工程3",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":5,
             "name":"房屋建筑工程4",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":6,
             "name":"房屋建筑工程5",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":7,
             "name":"房屋建筑工程6",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },{
             "id":8,
             "name":"房屋建筑工程7",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":9,
             "name":"房屋建筑工程8",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":10,
             "name":"房屋建筑工程9",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":11,
             "name":"房屋建筑工程10",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":12,
             "name":"房屋建筑工程11",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },
         {
             "id":13,
             "name":"房屋建筑工程12",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"地方标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"地方标准",
             "date":"2020/12/24"
         },{
             "id":14,
             "name":"房屋建筑工程13",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"企业标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"企业标准",
             "date":"2020/12/24"
         },
         {
             "id":15,
             "name":"房屋建筑工程14",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"企业标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"企业标准",
             "date":"2020/12/24"
         },
         {
             "id":16,
             "name":"房屋建筑工程16",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"企业标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"企业标准",
             "date":"2020/12/24"
         },
         {
             "id":17,
             "name":"房屋建筑工程17",
-            "province_id":"山东省",
-            "city_id":"青岛市",
-            "class_id":"企业标准",
+            "province_name":"山东省",
+            "city_name":"青岛市",
+            "class_name":"企业标准",
             "date":"2020/12/24"
         }
     ]
