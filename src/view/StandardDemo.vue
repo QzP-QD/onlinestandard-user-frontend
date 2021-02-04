@@ -77,7 +77,7 @@ export default {
       let that = this
       this.axios({
         method: 'get',
-        url: 'http://localhost:8080/static/mock/BusinessData.json'
+        url: 'http://localhost:8086/api/business/getBusiness'
         }).then(function (response) {
           that.BusinessData = response.data.BusinessData;
         })

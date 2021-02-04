@@ -226,11 +226,14 @@ export default {
         var that = this
         this.axios({
             method: 'get',
-            url: 'http://localhost:8080/static/mock/UnifyData.json'
+            url: 'http://localhost:8086/api/standard/getBybusiness',
+            params:{
+                activeBusiness: this.activeBusiness
+            }
             }).then(function (response) {
             that.standardList = response.data.standardList
                 for(var i=0; i < that.standardList.length; i++){
-                that.standardList[i].chosen = false
+                    that.standardList[i].chosen = false
                 }
                 that.tableData = that.standardList
             })
@@ -271,7 +274,7 @@ export default {
             let that = this
             this.axios({
                 method: 'get',
-                url: 'http://localhost:8080/static/mock/BusinessData.json'
+                url: 'http://localhost:8086/api/business/getBusiness'
                 }).then(function (response) {
                     that.BusinessData = response.data.BusinessData;
                 })
@@ -295,18 +298,13 @@ export default {
                     }
                 }
 
-                //模拟获取对应工程类型的数据
-                let that = this
-                var nameList=["UnifyData",
-                        "RailwayData",
-                        "HighwayData",
-                        "HousebuildingData",
-                        "UrbanRailData",
-                        "MunicipalData",
-                        "WatherData"]
+                var that = this
                 this.axios({
                     method: 'get',
-                    url: 'http://localhost:8080/static/mock/'+nameList[businessId]+'.json'
+                    url: 'http://localhost:8086/api/standard/getBybusiness',
+                    params:{
+                        activeBusiness: that.activeBusiness
+                    }
                     }).then(function (response) {
                         that.standardList = response.data.standardList
                         for(var i=0; i < that.standardList.length; i++){
