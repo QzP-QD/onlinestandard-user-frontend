@@ -198,7 +198,11 @@ export default {
                 name:""
             }
         }).then(function(response){
+          if(response.data.code == 200){
+            alert("获取场景标准等级失败")
+          }else{
             that.classes = response.data
+          }
         })
 
         this.axios({
@@ -208,19 +212,27 @@ export default {
                 activeBusiness: this.activeBusiness
             }
             }).then(function (response) {
+              if(response.data.code == 200){
+                alert("获取场景标准列表失败")
+              }else{
                 that.standardList = response.data.standardList
                 for(var i=0; i < that.standardList.length; i++){
                     that.standardList[i].chosen = false
                 }
                 that.tableData = that.standardList
+              }
             })
         
         this.axios({
             method:"get",
             url:"http://localhost:8086/api/location/getLoc"
         }).then(function(response){
+          if(response.data.code == 200){
+            alert("获取地理信息失败")
+          }else{
             that.provs = response.data.provs
             that.allCities = response.data.allCities
+          }
         })
 
         bus.$on("deleteID",function(id){
@@ -261,7 +273,11 @@ export default {
                 method: 'get',
                 url: 'http://localhost:8086/api/business/getBusiness'
                 }).then(function (response) {
+                  if(response.data.code == 200){
+                    alert("获取行业类型列表失败")
+                  }else{
                     that.BusinessData = response.data.BusinessData;
+                  }
                 })
         },
         //左侧工程分类切换响应方法
@@ -291,11 +307,15 @@ export default {
                         activeBusiness: that.activeBusiness
                     }
                     }).then(function (response) {
+                      if(response.data.code == 200){
+                        alert("获取行业类型列表失败")
+                      }else{
                         that.standardList = response.data.standardList
                         for(var i=0; i < that.standardList.length; i++){
                             that.standardList[i].chosen = false
                         }
                         that.tableData = that.standardList
+                      }
                     })
             }
         },

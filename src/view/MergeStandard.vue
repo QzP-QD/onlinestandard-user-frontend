@@ -83,27 +83,31 @@ export default {
             },
             url: 'http://localhost:8086/api/standard/MergePage'
                 }).then(function (response) {
-                that.items = response.data.items;
-                that.names = response.data.names;
-                for(var i = 0 ; i < that.items.length ; i ++){
-                    var temp = that.items[i].first_level
-                    if( that.firstLevels.indexOf(temp) == -1){
-                        that.firstLevels.push(temp)
+                if(response.data.code == 200){
+                    alert("获取合并标准信息失败")
+                }else{
+                    that.items = response.data.items;
+                    that.names = response.data.names;
+                    for(var i = 0 ; i < that.items.length ; i ++){
+                        var temp = that.items[i].first_level
+                        if( that.firstLevels.indexOf(temp) == -1){
+                            that.firstLevels.push(temp)
+                        }
                     }
-                }
-
-                for(var i = 0 ; i < that.items.length ; i ++){
-                    var tempFirst = that.items[i].first_level
-                    var tempSecond = that.items[i].second_level
-                    for(var j = 0 ; j < that.firstLevels.length ; j ++){
-                        if(tempFirst == that.firstLevels[j]){
-                            if(that.secondLevels.length < j+1){
-                                var templist = []
-                                that.secondLevels.push(templist)
-                            }
-
-                            if(that.secondLevels[j].indexOf(tempSecond) == -1){
-                                that.secondLevels[j].push(tempSecond)
+    
+                    for(var i = 0 ; i < that.items.length ; i ++){
+                        var tempFirst = that.items[i].first_level
+                        var tempSecond = that.items[i].second_level
+                        for(var j = 0 ; j < that.firstLevels.length ; j ++){
+                            if(tempFirst == that.firstLevels[j]){
+                                if(that.secondLevels.length < j+1){
+                                    var templist = []
+                                    that.secondLevels.push(templist)
+                                }
+    
+                                if(that.secondLevels[j].indexOf(tempSecond) == -1){
+                                    that.secondLevels[j].push(tempSecond)
+                                }
                             }
                         }
                     }

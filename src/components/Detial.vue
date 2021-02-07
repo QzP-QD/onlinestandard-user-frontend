@@ -180,17 +180,21 @@ export default {
                 },
                 url: 'http://localhost:8086/api/standard/getDetail'
                 }).then(function (response) {
-                    that.standardDetial = response.data.standardDetial
-                    that.standardDetial.chosen = mydata.chosen
-                    that.chosen =  that.standardDetial.chosen
-                    that.Prepared = mydata.standardPrepared
-
-                    for(var item of that.standardDetial.items){
-                        if(that.classes.indexOf(item.first_level) === -1){
-                            that.classes.push(item.first_level)
+                    if(response.data.code == 200){
+                        alert("获取场景标准信息失败")
+                    }else{
+                        that.standardDetial = response.data.standardDetial
+                        that.standardDetial.chosen = mydata.chosen
+                        that.chosen =  that.standardDetial.chosen
+                        that.Prepared = mydata.standardPrepared
+    
+                        for(var item of that.standardDetial.items){
+                            if(that.classes.indexOf(item.first_level) === -1){
+                                that.classes.push(item.first_level)
+                            }
                         }
+                        that.classes = that.classes.sort()
                     }
-                    that.classes = that.classes.sort()
                 })
         },
         pickup(){

@@ -79,7 +79,11 @@ export default {
         method: 'get',
         url: 'http://localhost:8086/api/business/getBusiness'
         }).then(function (response) {
-          that.BusinessData = response.data.BusinessData;
+          if(response.data.code == 200){
+            alert("获取行业类型列表失败")
+          }else{
+            that.BusinessData = response.data.BusinessData;
+          }
         })
     },
     //左侧工程分类切换响应方法
