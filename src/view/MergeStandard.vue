@@ -2,26 +2,28 @@
 <el-container style="width:1262px;"
     direction="vertical">
     <Header></Header>
-    <div 
-        style="
-            display:flex;
-            width:1262px;">
-        <h1>合并标准文档</h1>
-        <el-button
-            @click="downloadFile"
-            style="float:right ">
-            下载合并文档
-        </el-button>
-    </div>
+    <el-button
+        @click="downloadFile">
+        下载合并文档
+    </el-button>
+    <div id="exportPdf" ref="exportPdf">
     <el-container direction="vertical">
+        <div 
+            style="
+                display:flex;
+                width:1262px;">
+            <h1>合并标准文档</h1>
+        </div>
         <div
             v-for="(firstl, index1) in firstLevels"
             :key=index1>
             <h1>{{firstl}}</h1>
             <div 
                 v-for="(secondl, index2) in secondLevels[index1]"
+                style="font-size:20px;"
                 :key=index2>
                 {{secondl}}
+                <div style="height:10px;"></div>
                 <div
                     v-for="(item,index3) of items"
                     :key=index3>
@@ -29,12 +31,14 @@
                         style="
                             display:flex;
                             border-style:solid;
+                            font-size:15px;
                             border-width:1px;
                             border-color:#797979;
                             height:auto;
                             line-height:30px;
                             text-align:left;
                             padding-left:10px;"
+                        :style="{background:colors[0]}"
                         v-if="item.first_level === firstl && item.second_level === secondl">
                         {{item.detial}}
                     </div>
@@ -42,6 +46,7 @@
             </div>
         </div>
     </el-container>
+    </div>
 </el-container>
 </template>
 
@@ -50,6 +55,8 @@ export default {
     name:"MergeStandard",
     data(){
         return{
+            colors:["#D7D7D7","#FFFFFF"],
+            names:[],
             mylist:[],
             items:[],
             firstLevels:[],
@@ -64,12 +71,20 @@ export default {
     },
     methods:{
         getStandards(){
+            const qs = require('qs');   //list序列化
             var that = this
             this.axios({
-            method: 'get',
-            url: 'http://localhost:8080/static/mock/mergestandard.json'
+            method: 'post',
+            params:{
+                idList : this.mylist 
+            },
+            paramsSerializer: function(params) {
+                return qs.stringify(params, { arrayFormat: 'repeat' })
+            },
+            url: 'http://localhost:8086/api/standard/MergePage'
                 }).then(function (response) {
                 that.items = response.data.items;
+                that.names = response.data.names;
                 for(var i = 0 ; i < that.items.length ; i ++){
                     var temp = that.items[i].first_level
                     if( that.firstLevels.indexOf(temp) == -1){
@@ -94,6 +109,17 @@ export default {
                     }
                 }
             })
+
+        },
+        downloadFile(){
+            var filename =''
+            filename += "合并文档"
+            for(var i = 0 ; i < this.names.length ; i ++){
+                filename += "《"
+                filename += this.names[i]
+                filename += "》"
+            }
+            this.$PDFSave(this.$refs.exportPdf, filename);
 
         }
     }

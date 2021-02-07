@@ -97,10 +97,10 @@
                             <h3>属性名称：</h3>
                                 {{item.property_name}}
                             <h3>设备属性要求：</h3>
-                            <div v-if="item.property_type === 2">
+                            <div v-if="item.property_type === 1">
                                 {{item.value_1}}
                             </div> 
-                            <div v-if="item.property_type === 1">
+                            <div v-if="item.property_type === 2">
                                 {{item.value_1}} ~ {{item.value_2}}
                             </div>
                             <div slot="reference">设备关联</div>                    
@@ -175,10 +175,10 @@ export default {
             var that = this
             this.axios({
                 method: 'get',
-                // params:{
-                //     mydata.id // 传到后台待查询数据
-                // },
-                url: 'http://localhost:8080/static/mock/standardDetial.json'
+                params:{
+                    standardID : mydata.id // 传到后台待查询数据
+                },
+                url: 'http://localhost:8086/api/standard/getDetail'
                 }).then(function (response) {
                     that.standardDetial = response.data.standardDetial
                     that.standardDetial.chosen = mydata.chosen

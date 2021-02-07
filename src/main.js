@@ -11,6 +11,8 @@ import router from "./router"
 import ElementUI from "element-ui"
 //导入element CSS
 import 'element-ui/lib/theme-chalk/index.css'
+//导入pdf组件
+import vueToPdf from 'vue-to-pdf'
 
 import Header from "./components/Header"
 import List from "./components/List"
@@ -20,6 +22,7 @@ import Detial from "./components/Detial"
 Vue.use(VueRouter)
 Vue.use(VueAxios, axios)
 Vue.use(ElementUI)
+Vue.use(vueToPdf)
 
 Vue.config.productionTip = false
 

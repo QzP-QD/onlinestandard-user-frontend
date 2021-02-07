@@ -1,6 +1,6 @@
 {
     "standardDetial":{
-        "id":1,
+        "id":12,
         "name":"统一标准0",
         "province_name":"山东省",
         "city_name":"青岛市",
@@ -26,7 +26,7 @@
                 "property_related":true,
                 "equip_name":"摄像机",
                 "property_name":"像素",
-                "property_type":1,
+                "property_type":2,
                 "value_1":"200W",
                 "value_2":"500W",
                  "requested":true
