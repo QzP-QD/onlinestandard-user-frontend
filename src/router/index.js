@@ -12,6 +12,7 @@ export default new VueRouter({
     mode: 'history',
     routes:[
         {
+            name:"MainPage",
             path:'/',
             component: StandardDemo,
         },

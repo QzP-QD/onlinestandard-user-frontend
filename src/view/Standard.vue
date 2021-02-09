@@ -1,9 +1,12 @@
 <template>
-<el-container style="width:1262px;"
+<el-container 
     direction="vertical">
     <Header></Header>
     <div 
-      style="display:flex">
+      style="
+        display:flex;
+        line-height:40px;
+        height:40px;">
       <h4 style="margin-top:0px;">主页</h4>
       <h4 style="margin-top:0px;">>></h4>
       <h4 style="margin-top:0px;">{{activeBusiness}}</h4>
@@ -53,6 +56,13 @@
     </div>    
 
   </el-container>
+  <el-footer
+    style="
+      height:50px;
+      line-height:50px;
+      background-color:#B3C0D1;">
+      @智慧标准集成应用 --- 北京邮电大学（BUPT） --- 高性能计算及组网实验室（HPCN）
+  </el-footer>
 </el-container>
 </template>
 

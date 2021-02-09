@@ -92,11 +92,9 @@
                                 color:#FFFFFF;
                                 font-size:10px;
                                 margin-left:50px;">
-                            <h3>设备名称：</h3>
-                                {{item.equip_name}}
-                            <h3>属性名称：</h3>
-                                {{item.property_name}}
-                            <h3>设备属性要求：</h3>
+                            
+                            {{item.equip_name}}--{{item.property_name}}
+                            
                             <div v-if="item.property_type === 1">
                                 {{item.value_1}}
                             </div> 

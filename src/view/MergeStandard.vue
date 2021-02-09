@@ -1,7 +1,9 @@
 <template>
 <el-container style="width:1262px;"
     direction="vertical">
-    <Header></Header>
+    <Header
+        @click.native="jumpToMainPage">
+    </Header>
     <el-button
         @click="downloadFile">
         下载合并文档
@@ -40,7 +42,7 @@
                             padding-left:10px;"
                         :style="{background:colors[0]}"
                         v-if="item.first_level === firstl && item.second_level === secondl">
-                        {{item.detial}}
+                        [{{item.standard_name}}]：{{item.detial}}
                     </div>
                 </div>
             </div>
@@ -125,6 +127,9 @@ export default {
             }
             this.$PDFSave(this.$refs.exportPdf, filename);
 
+        },
+        jumpToMainPage(){
+            this.$router.push({name:'MainPage',params:{}});
         }
     }
 
