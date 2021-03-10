@@ -76,15 +76,13 @@ export default {
             const qs = require('qs');   //list序列化
             var that = this
             this.axios({
-            method: 'post',
-            params:{
-                idList : this.mylist 
-            },
-            paramsSerializer: function(params) {
-                return qs.stringify(params, { arrayFormat: 'repeat' })
-            },
-            url: 'http://localhost:8086/api/standard/MergePage'
-                }).then(function (response) {
+                method: 'post',
+                data: this.mylist,
+                paramsSerializer: function(params) {
+                    return qs.stringify(params, { arrayFormat: 'repeat' })
+                },
+                url: 'http://localhost:8086/api/standard/MergePage'
+            }).then(function (response) {
                 if(response.data.code == 200){
                     alert("获取合并标准信息失败")
                 }else{
@@ -96,7 +94,7 @@ export default {
                             that.firstLevels.push(temp)
                         }
                     }
-    
+
                     for(var i = 0 ; i < that.items.length ; i ++){
                         var tempFirst = that.items[i].first_level
                         var tempSecond = that.items[i].second_level
@@ -106,7 +104,7 @@ export default {
                                     var templist = []
                                     that.secondLevels.push(templist)
                                 }
-    
+
                                 if(that.secondLevels[j].indexOf(tempSecond) == -1){
                                     that.secondLevels[j].push(tempSecond)
                                 }
@@ -114,7 +112,7 @@ export default {
                         }
                     }
                 }
-            })
+        })
 
         },
         downloadFile(){
