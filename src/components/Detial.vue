@@ -186,6 +186,7 @@ export default {
                         that.chosen =  that.standardDetial.chosen
                         that.Prepared = mydata.standardPrepared
     
+                        that.classes = []
                         for(var item of that.standardDetial.items){
                             if(that.classes.indexOf(item.first_level) === -1){
                                 that.classes.push(item.first_level)
