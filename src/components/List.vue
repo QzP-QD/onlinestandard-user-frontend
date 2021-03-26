@@ -366,8 +366,7 @@ export default {
             this.selecetdCity = ''
             for(var temp of this.allCities){
                 if(prov === temp.prov){
- 
-                tempcities.push({label:temp.label, value:temp.label})
+                  tempcities.push({label:temp.label, value:temp.label})
                 }
             }
             this.cities = tempcities
