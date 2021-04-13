@@ -14,37 +14,6 @@
       <h4 v-if="mode === 2" style="margin-top:0px;">{{standardName}}</h4>
     </div>
     <el-container>
-      <el-aside
-        style="width:245px;">
-        <div
-          style="
-            width:244px;
-            height:60px;
-            line-height:60px;
-            background-color:#027DB4;
-            color:#FFFFFF;
-            text-align:center;
-            font-size:30px;">
-              工程分类
-        </div>
-        <el-menu
-          :default-active="activeBusiness"
-          class="el-menu-vertical-demo"
-          @select="switchBusiness"
-          style="width:244px;
-            text-align: center;">
-          <el-menu-item 
-            v-for="(business, i) of BusinessData"
-            :key=i
-            :index="business.name"
-            style="height:48px;">
-            <span slot="title">
-              {{business.name}}
-            </span>
-          </el-menu-item>
-        </el-menu>
-      </el-aside>
-
     <div v-show="mode === 1">
         <List :activeBusiness="activeBusiness"
             @goforDetial="gotoDetial">

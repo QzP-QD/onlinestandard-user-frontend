@@ -1,162 +1,147 @@
 <template>
-    <el-main>
-      <h1 
-        style="
+<el-container>
+  <el-aside
+    style="width:245px;">
+    <div
+      style="
+        width:244px;
+        height:60px;
+        line-height:60px;
+        background-color:#027DB4;
+        color:#FFFFFF;
+        text-align:center;
+        font-size:30px;">
+          工程分类
+    </div>
+    <el-menu
+      :default-active="activeBusiness"
+      class="el-menu-vertical-demo"
+      @select="switchBusiness"
+      style="width:244px;
+        text-align: center;">
+      <el-menu-item 
+        v-for="(business, i) of BusinessData"
+        :key=i
+        :index="business.name"
+        style="height:48px;">
+        <span slot="title">
+          {{business.name}}
+        </span>
+      </el-menu-item>
+    </el-menu>
+  </el-aside>
+  <el-main>
+    <h1 
+      style="
+        height:40px;
+        line-height:40px;
+        margin:0 auto;
+        text-align:left;">
+      标准列表——{{activeBusiness}}
+    </h1>
+    <div>
+      标准检索：
+      <el-select
+        placeholder="请选择标准等级"
+        v-model="selectedClass">
+        <el-option
+          label="（空）"
+          value="nocondition">
+        </el-option>
+        <el-option
+          v-for="(item, index) in classes"
+          :key=index
+          :label="item.label"
+          :value="item.value">
+        </el-option>
+      </el-select>
+      <el-select
+        placeholder="请选择省份"
+        v-model="selectedProv"
+        v-on:change="getProv($event)">
+        <el-option
+          label="（空）"
+          value="nocondition">
+        </el-option>
+        <el-option
+          v-for="(prov, index) in provs"
+          :key=index
+          :label="prov.label"
+          :value="prov.value">
+        </el-option>
+      </el-select>
+      <el-select
+        placeholder="请选择城市"
+        v-model="selecetdCity">
+        <el-option
+          label="（空）"
+          value="nocondition">
+        </el-option>
+        <el-option
+          v-for="(city, index) in cities"
+          :key=index
+          :label="city.label"
+          :value="city.value">
+        </el-option>
+      </el-select>
+      <i class="el-icon-search"
+        @click="filtStandards"
+        style="color:#169BD5;
           height:40px;
-          line-height:40px;
-          margin:0 auto;
-          text-align:left;">
-        标准列表——{{activeBusiness}}
-      </h1>
+          width:40px;">
+      </i>
+      <i class="el-icon-refresh"
+        @click="refresHandler"
+        style="color:#169BD5;
+          height:40px;
+          width:40px;">
+      </i>
+    </div>
+    <div style="display: flex;">
       <div>
-        标准检索：
-        <el-select
-          placeholder="请选择标准等级"
-          v-model="selectedClass">
-          <el-option
-            label="（空）"
-            value="nocondition">
-          </el-option>
-          <el-option
-            v-for="(item, index) in classes"
-            :key=index
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
-        <el-select
-          placeholder="请选择省份"
-          v-model="selectedProv"
-          v-on:change="getProv($event)">
-          <el-option
-            label="（空）"
-            value="nocondition">
-          </el-option>
-          <el-option
-            v-for="(prov, index) in provs"
-            :key=index
-            :label="prov.label"
-            :value="prov.value">
-          </el-option>
-        </el-select>
-        <el-select
-          placeholder="请选择城市"
-          v-model="selecetdCity">
-          <el-option
-            label="（空）"
-            value="nocondition">
-          </el-option>
-          <el-option
-            v-for="(city, index) in cities"
-            :key=index
-            :label="city.label"
-            :value="city.value">
-          </el-option>
-        </el-select>
-        <i class="el-icon-search"
-          @click="filtStandards"
-          style="color:#169BD5;
-            height:40px;
-            width:40px;">
-        </i>
-        <i class="el-icon-refresh"
-          @click="refresHandler"
-          style="color:#169BD5;
-            height:40px;
-            width:40px;">
-        </i>
-      </div>
-      <div style="display: flex;">
-        <div>
-          <el-table
-            :data="tableData.slice((currentPage-1)*pageSize, currentPage*pageSize)"
-            stripe
-            style="width: 100%;">
-            <el-table-column
-              align="center"
-              prop="name"
-              label="标准名称"
-              width="250">
-              <template slot-scope="scope">
-                  <el-button type="text" 
-                    style="color:#000000"
-                    @click="forDetail(scope.row)">
-                    {{scope.row.name}}
-                  </el-button>
-              </template>
-            </el-table-column>
-            <el-table-column
-              align="center"
-              prop="class_name"
-              label="标准级别"
-              width="150">
-            </el-table-column>
-            <el-table-column
-              align="center"
-              prop="date"
-              label="创建日期"
-              width="150">
-            </el-table-column>
-            <el-table-column
-              align="center"
-              width="150"
-              label="操作">
-              <template slot-scope="scope">
-                <el-button 
-                  type="text"
-                  style="color:#169BD5"
-                  @click="pickUp(scope.$index)" 
-                  v-show="tableData[scope.$index+(currentPage-1)*pageSize].chosen === false">
-                    选择为对比项
+        <el-table
+          :data="tableData.slice((currentPage-1)*pageSize, currentPage*pageSize)"
+          stripe
+          style="width: 100%;">
+          <el-table-column
+            align="center"
+            prop="name"
+            label="标准名称"
+            width="250">
+            <template slot-scope="scope">
+                <el-button type="text" 
+                  style="color:#000000"
+                  @click="forDetail(scope.row)">
+                  {{scope.row.name}}
                 </el-button>
-                <el-button
-                  type="text" 
-                  @click="putDown(scope.$index,true)" 
-                  style="color:#D57816"
-                  v-show="tableData[scope.$index+(currentPage-1)*pageSize].chosen === true">
-                    移除对比项
-                </el-button>
-              </template>
-            </el-table-column>
-          </el-table>
-          <el-pagination
-            background
-            @current-change="nextPage"
-            :current-page="currentPage"
-            :page-size="pageSize"
-            layout="total,prev, pager, next"
-            :total="tableData.length"
-            style="text-align:center">
-          </el-pagination>
-        </div>
-        <div 
-          style="background-color:red;
-            height:20px;">
-          <el-table
-            :data="standardPrepared"
-            style="width: 100%;">
-            <el-table-column
-              align="center"
-              prop="name"
-              label="已选中"
-              width="225">
-            </el-table-column>
-            <el-table-column
-              width="25">
-              <template slot-scope="scope">
-                <i class="el-icon-delete"
-                  @click="putDown(scope.$index,false)"></i>
-              </template>
-            </el-table-column>
-          </el-table>
-          <el-button 
-            @click="mergeStandard"
-            v-if="standardPrepared.length > 1">
-              生成合并文档
-          </el-button>
-        </div>
+            </template>
+          </el-table-column>
+          <el-table-column
+            align="center"
+            prop="class_name"
+            label="标准级别"
+            width="150">
+          </el-table-column>
+          <el-table-column
+            align="center"
+            prop="date"
+            label="创建日期"
+            width="150">
+          </el-table-column>
+        </el-table>
+        <el-pagination
+          background
+          @current-change="nextPage"
+          :current-page="currentPage"
+          :page-size="pageSize"
+          layout="total,prev, pager, next"
+          :total="tableData.length"
+          style="text-align:center">
+        </el-pagination>
       </div>
-    </el-main>
+    </div>
+  </el-main>
+</el-container>
 </template>
 
 <script>
@@ -167,6 +152,7 @@ export default {
     name:"List",
     data(){
         return{
+            activeBusiness:"智慧工地建设和应用统一标准",  //默认选中的工程类型
             BusinessData:"",
             standardList:"",
             tableData:[],
@@ -179,7 +165,6 @@ export default {
             selectedClass:'',
             selectedProv:'',
             selecetdCity:'',
-            standardPrepared:[],
         }
     },
     props:[
@@ -187,7 +172,6 @@ export default {
     ],
     mounted(){
         this.currentPage=1
-        this.standardPrepared = []
         this.getBusinessData();
         var that = this
         this.axios({
@@ -216,9 +200,6 @@ export default {
                 alert("获取场景标准列表失败")
               }else{
                 that.standardList = response.data.standardList
-                for(var i=0; i < that.standardList.length; i++){
-                    that.standardList[i].chosen = false
-                }
                 that.tableData = that.standardList
               }
             })
@@ -233,33 +214,6 @@ export default {
             that.provs = response.data.provs
             that.allCities = response.data.allCities
           }
-        })
-
-        bus.$on("deleteID",function(id){
-            for(var i=0; i < that.standardPrepared.length; i++){
-                if(that.standardPrepared[i].id === id){
-                    that.standardPrepared.splice(i,1)
-                    break
-                }
-            }
-            for(var i=0; i < that.standardList.length; i++){
-                if(that.standardList[i].id === id){
-                    that.standardList[i].chosen = false
-                    break
-                }
-            }
-            that.tableData = that.standardList
-        })
-
-        bus.$on("addID",function(id){
-            for(var item of that.standardList){
-                if(item.id === id){
-                    item.chosen = true
-                    that.standardPrepared.push(item)
-                    break
-                }
-            }
-            that.tableData = that.standardList
         })
     },
     watch:{
@@ -288,7 +242,6 @@ export default {
                 this.selecetdCity = ''
                 this.currentPage = 1
                 this.cities = []
-                this.standardPrepared = []
 
                 //获取到所选择板块的工程类型id，留出接口，方便后期对接后台查询
                 var businessId=""
@@ -311,48 +264,9 @@ export default {
                         alert("获取行业类型列表失败")
                       }else{
                         that.standardList = response.data.standardList
-                        for(var i=0; i < that.standardList.length; i++){
-                            that.standardList[i].chosen = false
-                        }
                         that.tableData = that.standardList
                       }
                     })
-            }
-        },
-        //选中标准作为对比
-        pickUp(index){
-            var realIndex = index + (this.currentPage-1)*this.pageSize
-            this.tableData[realIndex].chosen = true
-            this.$set(this.tableData, realIndex, this.tableData[realIndex])
-
-            this.standardPrepared.push(this.tableData[realIndex])
-
-            this.uptodate()
-        },
-        //取消选中，loc标识调用来源
-        putDown(index, loc){
-            if(loc){
-                var realIndex = index + (this.currentPage-1)*this.pageSize
-                this.tableData[realIndex].chosen = false
-                this.$set(this.tableData, realIndex, this.tableData[realIndex])
-        
-                var target = this.tableData[realIndex].id
-                for(var i=0; i < this.standardPrepared.length; i++){
-                    if(this.standardPrepared[i].id === target){
-                        this.standardPrepared.splice(i,1)
-                        break
-                    }
-                }
-                this.uptodate()
-            }else{
-                var target = this.standardPrepared[index].id
-                for(var i=0; i < this.standardList.length; i++){
-                    if(this.standardList[i].id === target){
-                        this.standardList[i].chosen = false
-                        break
-                    }
-                }
-                this.standardPrepared.splice(index,1)
             }
         },
         //下一页
@@ -373,7 +287,6 @@ export default {
         },
         //查询按钮响应方法
         filtStandards(){
-            this.uptodate()
             var temptable = []
             for(var item of this.standardList){
                 if((this.selectedClass === "nocondition" || this.selectedClass === "" || item.class_name === this.selectedClass)
@@ -386,26 +299,14 @@ export default {
         },
         //重置按钮
         refresHandler(){
-            this.uptodate()
             this.selectedClass = ''
             this.selectedProv = ''
             this.selecetdCity = ''
             this.currentPage = 1
             this.tableData = this.standardList
         },
-        //保持standardList和tabledata中的数据一致
-        uptodate(){
-            for(var item1 of this.tableData){
-                for(var item2 of this.standardList){
-                if(item1.id === item2.id)
-                    item2.chosen = item1.chosen
-                }
-            }
-        },
         //查看标准详情响应
         forDetail(row){
-            this.uptodate()
-
             this.$emit('goforDetial', row.name)
             this.selectedClass = ''
             this.selectedProv = ''
@@ -414,19 +315,10 @@ export default {
             this.tableData = this.standardList
 
             var temp = {}
-            temp.standardPrepared = this.standardPrepared
             temp.id = row.id
-            temp.chosen = row.chosen
             temp.activeBusiness = this.activeBusiness
             bus.$emit("sendID",temp)
         },
-        mergeStandard(){
-            var idlist = []
-            for(var item of this.standardPrepared){
-                idlist.push(item.id)
-            }
-            this.$router.push({name:'MergePage',params:{mylist:idlist}});
-        }
     }
 }
 </script>
