@@ -107,7 +107,7 @@
             align="center"
             prop="name"
             label="标准名称"
-            width="250">
+            width="180">
             <template slot-scope="scope">
                 <el-button type="text" 
                   style="color:#000000"
@@ -118,15 +118,45 @@
           </el-table-column>
           <el-table-column
             align="center"
-            prop="class_name"
-            label="标准级别"
+            prop="business"
+            label="工程分类"
             width="150">
           </el-table-column>
           <el-table-column
             align="center"
-            prop="date"
-            label="创建日期"
-            width="150">
+            prop="level"
+            label="标准级别"
+            width="90">
+          </el-table-column>
+          <el-table-column
+            align="center"
+            prop="province"
+            label="省份"
+            width="90">
+          </el-table-column>
+          <el-table-column
+            align="center"
+            prop="city"
+            label="城市"
+            width="90">
+          </el-table-column>
+          <el-table-column
+            align="center"
+            prop="releasedate"
+            label="发布日期"
+            width="120">
+          </el-table-column>
+          <el-table-column
+            align="center"
+            prop="activedate"
+            label="实施日期"
+            width="120">
+          </el-table-column>
+          <el-table-column
+            align="center"
+            prop="abolishdate"
+            label="废止日期"
+            width="120">
           </el-table-column>
         </el-table>
         <el-pagination
@@ -176,7 +206,7 @@ export default {
         var that = this
         this.axios({
             method:'get',
-            url:'http://localhost:8086/api/class/getClass',
+            url:'http://localhost:8086/level/getLevel',
             params:{
                 id:0,
                 name:""
@@ -191,7 +221,7 @@ export default {
 
         this.axios({
             method: 'get',
-            url: 'http://localhost:8086/api/standard/getBybusiness',
+            url: 'http://localhost:8086/standard/getBybusiness',
             params:{
                 activeBusiness: this.activeBusiness
             }
@@ -206,31 +236,43 @@ export default {
         
         this.axios({
             method:"get",
-            url:"http://localhost:8086/api/location/getLoc"
+            url:"http://localhost:8086/city/getLoc"
         }).then(function(response){
           if(response.data.code == 200){
             alert("获取地理信息失败")
           }else{
             that.provs = response.data.provs
             that.allCities = response.data.allCities
+            console.log(that.provs);
+            console.log(that.allCities);
+
           }
         })
+
+
     },
     watch:{
         activeBusiness:"switch"
     },
     methods:{
+        //左侧工程分类切换响应方法
+        switchBusiness(key, keyPath){
+          if(key != null){
+            this.activeBusiness = key
+          }
+        },
         //获取左侧工程分类信息
         getBusinessData(){
             let that = this
             this.axios({
                 method: 'get',
-                url: 'http://localhost:8086/api/business/getBusiness'
+                url: 'http://localhost:8086/business/getBusiness'
                 }).then(function (response) {
                   if(response.data.code == 200){
                     alert("获取行业类型列表失败")
                   }else{
                     that.BusinessData = response.data.BusinessData;
+                    console.log(that.BusinessData);
                   }
                 })
         },
@@ -242,7 +284,7 @@ export default {
                 this.selecetdCity = ''
                 this.currentPage = 1
                 this.cities = []
-
+                console.log("1")
                 //获取到所选择板块的工程类型id，留出接口，方便后期对接后台查询
                 var businessId=""
                 for(var i=0; i<this.BusinessData.length; i++){
@@ -251,11 +293,11 @@ export default {
                         break
                     }
                 }
-
+                console.log("2")
                 var that = this
                 this.axios({
                     method: 'get',
-                    url: 'http://localhost:8086/api/standard/getBybusiness',
+                    url: 'http://localhost:8086/standard/getBybusiness',
                     params:{
                         activeBusiness: that.activeBusiness
                     }

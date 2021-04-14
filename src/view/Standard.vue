@@ -56,7 +56,7 @@ export default {
       let that = this
       this.axios({
         method: 'get',
-        url: 'http://localhost:8086/api/business/getBusiness'
+        url: 'http://localhost:8086/business/getBusiness'
         }).then(function (response) {
           if(response.data.code == 200){
             alert("获取行业类型列表失败")

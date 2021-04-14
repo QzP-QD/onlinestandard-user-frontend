@@ -18,7 +18,7 @@
             border-color:#D7D7D7"/>
     <el-contaner>
         <el-aside>
-            <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+            <el-tree :data="standardDetial" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
         </el-aside>
         <el-main v-show="nodeOnShow.content != undefined" >
             {{nodeOnShow.content}}
@@ -58,7 +58,8 @@ export default {
             colors:["#D7D7D7","#FFFFFF"],
             standardDetial:{},
             standardInfo:"",
-            nodeOnShow:{}
+            nodeOnShow:{},
+            defaultProps:""
         }
     },
     mounted(){
@@ -72,15 +73,12 @@ export default {
             var that = this
             this.axios({
                 method: 'get',
-                params:{
-                    standardID : mydata.id // 传到后台待查询数据
-                },
-                url: 'http://localhost:8086/api/standard/getDetail'
+                url: "http://localhost:8086/grade/" + mydata.id
                 }).then(function (response) {
-                    if(response.data.code == 200){
+                    if(response.data.code == 500){
                         alert("获取场景标准信息失败")
                     }else{
-                        that.standardDetial = response.data.standardDetial
+                        that.standardDetial = response.data.result.catalog
                         that.standardInfo = response.data.standardInfo
                     }
                 })
